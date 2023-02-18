@@ -11,7 +11,7 @@
 <main class = "m-4">
     @yield('main')
 </main>
-<script src ="{{asset('app/app.js')}}"> </script>
+<script src="{{asset('app/app.js')}}"></script>
 
 </body>
 </html>

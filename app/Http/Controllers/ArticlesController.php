@@ -11,4 +11,8 @@ class ArticlesController extends Controller
 
         return view('articles.index');
     }
+
+    public function create(){
+        return view('articles.create');
+    }
 }
