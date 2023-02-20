@@ -13,7 +13,9 @@
         <p>
           {{ $article->created_at }} 由{{$article->user->email}}
         </p>
-        <a href="{{ route('articles.edit') }}">編輯</a>
+        <a href="{{ route('articles.edit', $article) }}">編輯</a>
       </div>
-@endforeach
+      @endforeach
+
+      {{ $articles->links() }}
 @endsection
