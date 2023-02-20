@@ -9,7 +9,10 @@
 
 @foreach ($articles as $article)
       <div class = "border-t border-gray-300 my-1 p-2">
-     <h2 class = "font-bold text-xl"> {{ $article->title }}</h2>
+     <h2 class = "font-bold text-xl"> 
+      <a href="{{ route('articles.show', $article)}}">
+      {{ $article->title }}</h2>
+    </a>
         <p>
           {{ $article->created_at }} 由{{$article->user->email}}
         </p>

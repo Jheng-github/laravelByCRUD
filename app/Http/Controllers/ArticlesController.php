@@ -20,6 +20,12 @@ class ArticlesController extends Controller
             return view('articles.index', ['articles' => $articles]);
         }
 
+        public function show($id){//撈出哪一筆資料 需要給參數
+            $articles = Article::find($id);//實施撈出資料
+            return view('articles.show', ['articles' => $articles]);//呈現view
+        }
+
+
     public function create(){
         return view('articles.create');
     }
