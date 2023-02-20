@@ -42,8 +42,10 @@ Route::get('/', [ArticlesController::class, 'index'])->name('root');//文章列�
 //     })->name('dashboard');
 // });
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('articles', ArticlesController::class);
-    Route::get('/', [ArticlesController::class, 'index'])->name('root');
-});
+
+//這個可以用登入驗證
+// Route::middleware(['auth'])->group(function () {
+//     Route::resource('articles', ArticlesController::class);
+//     Route::get('/', [ArticlesController::class, 'index'])->name('root');
+// });
 

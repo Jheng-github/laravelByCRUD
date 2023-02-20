@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class ArticlesController extends Controller
 {
-    //
-    public function index(){
-
-        return view('articles.index');
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index'); //除了index其他都需要驗證
     }
+
+
+        public function index(){
+            $articles = Article::all();
+ 
+            return view('articles.index', ['articles' => $articles]);
+        }
 
     public function create(){
         return view('articles.create');
