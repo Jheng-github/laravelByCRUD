@@ -12,10 +12,9 @@ class Article extends Model
     use SoftDeletes;
 
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\Models\User');
-    
-        
     }
-    protected $fillable = ['title', 'content'];    
+    protected $fillable = ['title', 'content'];
 }

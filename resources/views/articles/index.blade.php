@@ -24,7 +24,7 @@
             @method('delete')
             @csrf
             <div class="flex">
-                <a  class='mr-2' href="{{ route('articles.edit', $article) }}">編輯</a>
+                <a class='mr-2' href="{{ route('articles.edit', $article) }}">編輯</a>
                 <button type="submit" class="px-2 bg-red-500 text-red-100">刪除</button>
             </div>
         </form>

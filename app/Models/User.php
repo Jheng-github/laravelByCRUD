@@ -59,8 +59,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function articles(){
+    public function articles()
+    {
         return $this->hasMany('App\Models\Article');
-       // return $this->hasMany(Article::class);
+        // return $this->hasMany(Article::class);
     }
 }
