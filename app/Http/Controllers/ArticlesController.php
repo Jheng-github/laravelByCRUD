@@ -15,7 +15,8 @@ class ArticlesController extends Controller
 
         public function index(){
             //$articles = Article::paginate(3)->orderBy('id', 'desc')->get();
-            $articles = Article::orderBy('id', 'desc')->paginate(3);
+            //$articles = Article::orderBy('id', 'desc')->paginate(3); //會引發N+1
+            $articles = Article::with('user')->orderBy('id', 'desc')->paginate(3);
            //$articles = Article::paginate(3);
             return view('articles.index', ['articles' => $articles]);
         }
@@ -61,5 +62,11 @@ class ArticlesController extends Controller
             ]);
             $article->update($content);
           return redirect()->route('root')->with('notice', '文章更新成功～');
+    }
+
+    public function destroy($id){
+        $article = auth()->user()->articles->find($id);
+        $article->delete();
+        return redirect()->route('root')->with('notice', '文章已刪除');
     }
 }

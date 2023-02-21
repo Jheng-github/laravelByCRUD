@@ -10,7 +10,9 @@ Route::resource('articles', ArticlesController::class);//創建七個路徑
 
 Route::get('/', [ArticlesController::class, 'index'])->name('root');//文章列表當成首頁
 
-
+Route::get('/test', function () {
+    return view('welcome');
+});
 
 
 
