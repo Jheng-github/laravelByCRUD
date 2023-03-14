@@ -8,10 +8,11 @@
     <a href="{{ route('articles.create') }}">新增文章</a>
 
     @foreach ($articles as $article)
+    {{-- {{dd($article)}} --}}
         <div class="border-t border-gray-300 my-1 p-2">
             <h2 class="font-bold text-xl">
-                <a href="{{ route('articles.show', $article) }}">
-                    {{ $article->title }}
+                <a href="{{ route('articles.show', $article->id) }}">
+                    {{ $article->title }} 
             </h2>
             </a>
             <p>

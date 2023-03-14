@@ -7,22 +7,16 @@ use App\Models\Article;
 
 class ArticlesController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth')->except('index'); //除了index其他都需要驗證
-    // }
-
 
     public function index()
     {
-        //$articles = Article::paginate(3)->orderBy('id', 'desc')->get();
-        //$articles = Article::orderBy('id', 'desc')->paginate(3); //會引發N+1
+
         $articles = Article::with('user')->orderBy('id', 'desc')->paginate(3);
-        //$articles = Article::paginate(3);
+
         return view('articles.index', ['articles' => $articles]);
     }
 
-    public function show($id)
+    public function show($id)//取的就是 $article->id
     { //撈出哪一筆資料 需要給參數
         $articles = Article::find($id); //實施撈出資料
         return view('articles.show', ['articles' => $articles]); //呈現view

@@ -9,8 +9,22 @@ use App\Http\Controllers\ArticlesController;
 
 Route::resource('articles', ArticlesController::class); //創建七個路徑
 
-Route::get('/', [ArticlesController::class, 'index'])->name('root'); //文章列表當成首頁
-
-Route::get('/test', function () {
+//原本是設定 / 是主頁
+Route::get('/articles', [ArticlesController::class, 'index'])->name('root'); //
+//articles
+Route::get('/', function () {
     return view('welcome');
+});
+
+
+
+//Route::resource('articles', ArticlesController::class); //創建七個路徑
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });
