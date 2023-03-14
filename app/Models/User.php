@@ -58,7 +58,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-    //===原本沒有
     public function articles()
     {
         return $this->hasMany(Article::class);
